@@ -1,23 +1,16 @@
-import CartItem from "./CartItem.jsx";
+import { useCart } from "../context/CartContext";
+import CartItem from "./CartItem";
 
-export default function Cart({ cartItems, incrementQuantity, decrementQuantity }) {
+export default function Cart() {
+  const { cart } = useCart();
+
   return (
-    <section className="cart">
+    <div className="cart">
       <h2>Your Cart</h2>
-      {cartItems.length === 0 ? (
-        <p>Your cart is empty.</p>
-      ) : (
-        <ul>
-          {cartItems.map(item => (
-            <CartItem
-              key={item.id}
-              item={item}
-              incrementQuantity={incrementQuantity}
-              decrementQuantity={decrementQuantity}
-            />
-          ))}
-        </ul>
-      )}
-    </section>
+      {cart.length === 0 && <p>No items yet.</p>}
+      {cart.map((item) => (
+        <CartItem key={item.id} item={item} />
+      ))}
+    </div>
   );
 }

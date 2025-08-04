@@ -1,14 +1,15 @@
-export default function CartItem({ item, incrementQuantity, decrementQuantity }) {
+import { useCart } from "../context/CartContext";
+
+export default function CartItem({ item }) {
+  const { increment, decrement } = useCart();
+
   return (
-    <li>
-      <span>
-        {item.image} {item.name}
-      </span>
-      <div>
-        <button onClick={() => decrementQuantity(item.id)}>-</button>
-        <span style={{ margin: "0 0.5rem" }}>{item.quantity}</span>
-        <button onClick={() => incrementQuantity(item.id)}>+</button>
-      </div>
-    </li>
+    <div className="cart-item">
+      <span className="cart-img">{item.image}</span>
+      <span className="cart-name">{item.name}</span>
+      <span className="cart-qty">Qty: {item.quantity}</span>
+      <button onClick={() => decrement(item.id)}>-</button>
+      <button onClick={() => increment(item.id)}>+</button>
+    </div>
   );
 }

@@ -1,3 +1,4 @@
+
 body {
   font-family: Arial, sans-serif;
   background: #f0f8f5;
@@ -6,21 +7,27 @@ body {
   color: #2e4a2b;
 }
 
+
 h1 {
   text-align: center;
   margin-bottom: 2rem;
 }
 
-.main-content {
-  display: flex;
-  gap: 2rem;
+
+.app {
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.content {
+  display: flex;
+  gap: 2rem;
   align-items: flex-start;
 }
 
 
-.plant-grid {
+.plant-list {
   flex: 3;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -36,17 +43,19 @@ h1 {
   text-align: center;
   box-shadow: 0 3px 6px rgb(0 0 0 / 0.1);
   transition: transform 0.2s ease;
+  cursor: pointer;
 }
 
 .plant-card:hover {
   transform: translateY(-4px);
 }
 
-.plant-image {
+.plant-img {
   font-size: 3rem;
   display: block;
   margin-bottom: 0.5rem;
 }
+
 
 button {
   background-color: #4caf50;
@@ -80,36 +89,33 @@ button:hover {
   text-align: center;
 }
 
-.cart ul {
-  list-style-type: none;
-  padding-left: 0;
-}
 
-.cart li {
-  padding: 0.5rem 0;
-  border-bottom: 1px solid #b7d8b5;
+.cart-item {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 0.5rem;
   align-items: center;
 }
 
-.cart li div {
-  display: inline-flex;
-  align-items: center;
+.cart-item > .cart-img {
+  font-size: 1.5rem;
+  margin-right: 0.75rem;
 }
 
-.cart li div button {
+.cart-item > .cart-name {
+  flex: 1;
+}
+
+.cart-item > .cart-qty {
+  margin: 0 0.75rem;
+}
+
+.cart-item button + button {
+  margin-left: 0.5rem;
+}
+
+.cart-item button {
   background-color: #6bbf59;
   border: none;
   color: white;
-  font-weight: bold;
-  width: 28px;
-  height: 28px;
-  border-radius: 4px;
-  cursor: pointer;
-  user-select: none;
-}
-
-.cart li div button:hover {
-  background-color: #4a8230;
 }

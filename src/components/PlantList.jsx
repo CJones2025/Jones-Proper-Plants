@@ -1,11 +1,12 @@
-import PlantCard from "./PlantCard.jsx";
+import PlantCard from "./PlantCard";
+import PLANTS from "../data.js";
 
-export default function PlantList({ plants, addToCart }) {
+export default function PlantList() {
   return (
-    <section className="plant-grid">
-      {plants.map(plant => (
-        <PlantCard key={plant.id} plant={plant} addToCart={addToCart} />
+    <div className="plant-list">
+      {PLANTS.map((plant) => (
+        <PlantCard key={plant.id} plant={plant} />
       ))}
-    </section>
+    </div>
   );
 }
